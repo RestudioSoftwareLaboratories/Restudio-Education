@@ -2,35 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Restudio Education</title>
-
     <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/02cSd2QF/restudio-profile.png">
 
-    <!-- Tiny5 -->
+    <!-- Tiny5 for navbar -->
     <link href="https://fonts.cdnfonts.com/css/tiny5" rel="stylesheet">
-
-    <!-- Playwrite GB S -->
+    <!-- Dosis for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Playwrite GB S (for banner text) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:wght@100..400&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            background-color: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Linux Libertine', 'Georgia', 'Times New Roman', serif;
+            background-color: #f6f6f6;
             line-height: 1.6;
+            color: #202122;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
         .navbar {
-            background-color: #000;
-            color: #fff;
+            background-color: #000000;
+            color: #ffffff;
             padding: 10px 20px;
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .navbar img {
@@ -42,66 +52,120 @@
             font-family: 'Tiny5', sans-serif;
             font-size: 20px;
             margin: 0;
+            color: #ffffff;
+            letter-spacing: 1px;
         }
 
-        .banner {
+        /* ===== BANNER with overlay text ===== */
+        .banner-wrapper {
             position: relative;
             width: 100%;
             max-height: 400px;
             overflow: hidden;
         }
 
-        .banner img {
+        .banner-wrapper img {
             width: 100%;
             display: block;
+            height: auto;
         }
 
-        .banner-text {
+        .banner-overlay {
             position: absolute;
             left: 30px;
             top: 50%;
             transform: translateY(-50%);
+            z-index: 2;
         }
 
-        .banner-text .line1 {
+        .banner-overlay .line1 {
             font-family: "Playwrite GB S", cursive;
             font-size: 32px;
             color: white;
             margin: 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
         }
 
-        .banner-text .line2 {
+        .banner-overlay .line2 {
             font-family: "Playwrite GB S", cursive;
             font-size: 24px;
             color: white;
             margin-top: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
         }
 
-        .page-title {
-            font-family: 'Tiny5', sans-serif;
+        /* ===== Main container ===== */
+        .docs-container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 24px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .docs-card {
+            background: #ffffff;
+            border: 1px solid #e2e2e2;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            padding: 32px 36px;
+            transition: all 0.2s ease;
+        }
+
+        .page-headline {
+            font-family: 'Dosis', 'Times New Roman', serif;
+            font-weight: 600;
+            font-size: 32px;
+            border-bottom: 1px solid #c8ccd1;
+            padding-bottom: 10px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1a1f2b;
+        }
+
+        .page-headline i {
+            color: #2C6E9E;
             font-size: 28px;
-            margin: 20px;
-            text-align: center;
+            margin-right: 4px;
         }
 
-        hr {
-            margin: 0 20px 30px;
-            border: 1px solid #ccc;
+        h2 {
+            font-family: 'Dosis', 'Times New Roman', serif;
+            font-weight: 600;
+            font-size: 26px;
+            margin: 32px 0 14px 0;
+            border-bottom: 1px solid #eaecf0;
+            padding-bottom: 6px;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .content-section {
-            max-width: 1000px;
-            margin: 0 auto 40px;
-            padding: 0 20px;
-        }
-
-        .credits-title {
-            font-family: 'Tiny5', sans-serif;
+        h2 i {
+            color: #2C6E9E;
             font-size: 24px;
-            margin-bottom: 20px;
-            text-align: center;
+        }
+
+        .docs-card p {
+            margin: 16px 0;
+            line-height: 1.7;
+            color: #2d3748;
+        }
+
+        .docs-card strong {
+            color: #0c4e6e;
+        }
+
+        .docs-card a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        .docs-card a:hover {
+            text-decoration: underline;
         }
 
         .image-gallery {
@@ -109,6 +173,7 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            margin: 20px 0;
         }
 
         .credit-image {
@@ -116,16 +181,148 @@
             aspect-ratio: 16 / 9;
             object-fit: cover;
             border-radius: 8px;
+            border: 1px solid #e2e2e2;
+        }
+
+        /* ===== Projects Grid ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 20px 0 10px 0;
+        }
+
+        .project-card {
+            background: #f8fafc;
+            border: 1px solid #e2e2e2;
+            border-radius: 12px;
+            padding: 24px 22px;
+            transition: all 0.2s ease;
+            border-left: 6px solid #2C6E9E;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        .project-card .project-icon {
+            font-size: 28px;
+            color: #2C6E9E;
+            margin-bottom: 10px;
+        }
+
+        .project-card h3 {
+            font-family: 'Dosis', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: #1a1f2b;
+            margin: 0 0 8px 0;
+        }
+
+        .project-card p {
+            margin: 0 0 12px 0;
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+
+        .project-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .project-badge {
+            display: inline-block;
+            font-size: 11px;
+            padding: 3px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            color: #ffffff !important;
+        }
+
+        .project-badge i {
+            color: #ffffff !important;
+        }
+
+        .badge-active {
+            background: #2C6E9E;
+        }
+
+        .badge-open {
+            background: #2C6E9E;
+        }
+
+        .badge-open:hover {
+            background: #1f5a7a;
+            transform: scale(1.02);
+        }
+
+        .footer-wiki {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e2e2e2;
+            padding: 16px 24px;
+            font-size: 13px;
+            color: #54595d;
+            font-family: sans-serif;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .footer-wiki a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        .footer-wiki a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            margin: 28px 0 18px;
+            border: 0;
+            border-top: 1px solid #e2e2e2;
         }
 
         .contact-section {
+            margin: 40px 0 20px 0;
+            background: #f1f5f9;
+            padding: 20px 24px;
+            border-radius: 16px;
+            border-left: 6px solid #2C6E9E;
             text-align: center;
-            margin: 40px 20px;
-            font-size: 18px;
+        }
+
+        .contact-section h2 {
+            font-family: 'Dosis', 'Times New Roman', serif;
+            font-weight: 600;
+            font-size: 24px;
+            margin: 0 0 12px 0;
+            border-bottom: none;
+            padding-bottom: 0;
+            color: #1a1f2b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-section h2 i {
+            color: #2C6E9E;
+            font-size: 24px;
+        }
+
+        .contact-section p {
+            margin: 8px 0;
+            font-size: 1rem;
         }
 
         .contact-section a {
-            color: #0066ff;
+            color: #0645ad;
             text-decoration: none;
             font-weight: bold;
         }
@@ -134,95 +331,152 @@
             text-decoration: underline;
         }
 
-        .footer {
-            text-align: left;
-            padding: 10px 20px;
-            color: #666;
-            margin-top: auto;
+        .contact-section i {
+            color: #2C6E9E;
+            width: 20px;
         }
 
-        @media (max-width: 768px) {
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            display: block;
+            margin: 0 auto 15px;
+        }
+
+        .acceptance-note {
+            background: #eef2ff;
+            padding: 12px 20px;
+            border-radius: 60px;
+            margin-top: 30px;
+            border: 1px solid #cbd5e1;
+            text-align: center;
+            color: #1e3a5f;
+        }
+
+        .acceptance-note i {
+            color: #2C6E9E;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 700px) {
+            .docs-card {
+                padding: 24px 20px;
+            }
+            .page-headline {
+                font-size: 26px;
+                flex-wrap: wrap;
+            }
+            .banner-overlay .line1 {
+                font-size: 22px;
+            }
+            .banner-overlay .line2 {
+                font-size: 16px;
+            }
             .credit-image {
                 width: 100%;
             }
-
-            .banner-text .line1 {
-                font-size: 24px;
+            .contact-section {
+                padding: 16px 18px;
             }
-
-            .banner-text .line2 {
-                font-size: 18px;
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-
     <!-- Navbar -->
     <div class="navbar">
-        <img src="https://i.postimg.cc/yYCszSyc/swrh-restudio.png" alt="Logo">
+        <img src="https://i.postimg.cc/yYCszSyc/swrh-restudio.png" alt="Restudio Logo">
         <h1>Education</h1>
     </div>
 
-    <!-- Banner -->
-    <div class="banner">
+    <!-- ===== BANNER with overlay text ===== -->
+    <div class="banner-wrapper">
         <img src="https://i.postimg.cc/90wy9mB9/jonatan-pie-3l3Rw-Qd-HRHg-unsplash.jpg" alt="Education Banner">
-
-        <div class="banner-text">
+        <div class="banner-overlay">
             <div class="line1">Welcome to Restudio Education!</div>
             <div class="line2">Let's learn together! With Restudio Education</div>
         </div>
     </div>
 
-    <!-- Title -->
-    <h1 class="page-title">Education</h1>
-    <hr>
+    <!-- Main container -->
+    <div class="docs-container">
+        <div class="docs-card">
 
-    <!-- Content -->
-    <div class="content-section">
-        <p><strong>Restudio Education for Schools</strong></p>
+            <!-- Headline -->
+            <div class="page-headline">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Education</span>
+            </div>
 
-        <p>
-            Restudio Education builds school platforms that integrate the full
-            range of Restudio products, including ready-to-use products like
-            Restudio Tables, all in one environment.
-        </p>
-    </div>
+            <!-- ====== CONTENT ====== -->
+            <p><strong>Restudio Education for Schools</strong></p>
 
-    <!-- Images -->
-    <div class="content-section">
-        <h2 class="credits-title">Images taken from Unsplash</h2>
+            <p>
+                Restudio Education builds school platforms that integrate the full
+                range of Restudio products, including ready-to-use products like
+                Restudio Tables, all in one environment.
+            </p>
 
-        <div class="image-gallery">
-            <img
-                src="https://i.postimg.cc/XYV2mPcx/element5-digital-Oy-Cl7Y4y0Bk-unsplash.jpg"
-                alt="Unsplash Image 1"
-                class="credit-image">
+            <!-- ====== PROJECTS SECTION ====== -->
+            <h2><i class="fas fa-project-diagram"></i> Projects From Restudio Education</h2>
 
-            <img
-                src="https://i.postimg.cc/SJv7zDPL/shelby-murphy-figueroa-t-Yq6Moi-TR-E-unsplash.jpg"
-                alt="Unsplash Image 2"
-                class="credit-image">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-school"></i></div>
+                    <h3>Al Awael Platform</h3>
+                    <p>An integrated educational platform developed for Al-Awael Intermediate School in Abha, Saudi Arabia.</p>
+                    <div class="project-badges">
+                        <span class="project-badge badge-active"><i class="fas fa-check-circle" style="margin-right:4px;"></i> ACTIVE</span>
+                        <a href="https://restudio-education.github.io/al-awael-main-menu/" target="_blank" class="project-badge badge-open"><i class="fas fa-external-link-alt" style="margin-right:4px;"></i> OPEN</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== Images (unchanged) ====== -->
+            <h2><i class="fas fa-images"></i> Images taken from Unsplash</h2>
+
+            <div class="image-gallery">
+                <img
+                    src="https://i.postimg.cc/XYV2mPcx/element5-digital-Oy-Cl7Y4y0Bk-unsplash.jpg"
+                    alt="Unsplash Image 1"
+                    class="credit-image">
+
+                <img
+                    src="https://i.postimg.cc/SJv7zDPL/shelby-murphy-figueroa-t-Yq6Moi-TR-E-unsplash.jpg"
+                    alt="Unsplash Image 2"
+                    class="credit-image">
+            </div>
+
+            <!-- ====== CONTACT SECTION ====== -->
+            <div class="contact-section">
+                <img
+                    src="https://i.postimg.cc/Vkf8gDJT/letter.png"
+                    alt="Contact Icon"
+                    class="contact-icon">
+
+                <h2><i class="fas fa-address-card"></i> Contact Us</h2>
+                <p>
+                    Do you need to create a platform?
+                    <a href="mailto:restudiosupport@gmail.com">Contact us</a>
+                </p>
+            </div>
+
+            <!-- acceptance note -->
+            <div class="acceptance-note">
+                <i class="fas fa-school"></i> Restudio Education — built for learning
+            </div>
+
         </div>
     </div>
 
-<!-- Contact -->
-<div class="contact-section">
-
-    <img
-        src="https://i.postimg.cc/Vkf8gDJT/letter.png"
-        alt="Contact Icon"
-        style="width:80px; height:80px; display:block; margin:0 auto 15px;">
-
-    <div>
-        Do you need to create a platform?
-        <a href="mailto:restudiosupport@gmail.com">Contact us</a>
-    </div>
-
-</div>
     <!-- Footer -->
-    <div class="footer">
-        © Restudio Software Laboratories
+    <div class="footer-wiki">
+        <i class="far fa-copyright" style="margin-right: 4px;"></i> Restudio Software Laboratories
+        <span style="float: right; font-size: 12px; color: #6b7280;">
+            <i class="fas fa-code"></i> open source · free
+        </span>
     </div>
 
 </body>
